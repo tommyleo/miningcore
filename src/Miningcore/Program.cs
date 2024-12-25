@@ -740,7 +740,7 @@ public class Program : BackgroundService
                 {
                     var target = new FileTarget(poolConfig.Id)
                     {
-                        FileName = GetLogPath(config, poolConfig.Id + ".log"),
+                        FileName = GetLogPath(config, poolConfig.Id + "_${shortdate}.log"),
                         FileNameKind = FilePathKind.Unknown,
                         Layout = layout
                     };
