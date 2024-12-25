@@ -228,20 +228,18 @@ public class BitcoinPool : PoolBase
 
         try
         {
-            var requestedDiff = (double) Convert.ChangeType(request.Params, TypeCode.Double)!;
+            string paramsString = request.Params.ToString();
+            string numericParams = new string(paramsString.Where(c => char.IsDigit(c) || c == '.').ToArray());
+            var requestedDiff = Convert.ToDouble(numericParams);
 
             // client may suggest higher-than-base difficulty, but not a lower one
             var poolEndpoint = poolConfig.Ports[connection.LocalEndpoint.Port];
 
-            if(requestedDiff > poolEndpoint.Difficulty)
-            {
-                context.SetDifficulty(requestedDiff);
-                await connection.NotifyAsync(BitcoinStratumMethods.SetDifficulty, new object[] { context.Difficulty });
+            context.SetDifficulty(requestedDiff);
+            await connection.NotifyAsync(BitcoinStratumMethods.SetDifficulty, new object[] { context.Difficulty });
 
-                logger.Info(() => $"[{connection.ConnectionId}] Difficulty set to {requestedDiff} as requested by miner");
-            }
+            logger.Info(() => $"[{connection.ConnectionId}] Difficulty set to {requestedDiff} as requested by miner");
         }
-
         catch(Exception ex)
         {
             logger.Error(ex, () => $"Unable to convert suggested difficulty {request.Params}");
