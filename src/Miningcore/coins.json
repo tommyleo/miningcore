@@ -2229,22 +2229,22 @@
         "explorerAccountLink": "https://explorer.radiantblockchain.org/address/{0}"
     },
     "novo": {
-      "name": "Novo",
-      "symbol": "NOVO",
-      "family": "bitcoin",
-      "coinbaseHasher": {
-        "hash": "sha256d"
-      },
-      "headerHasher": {
-        "hash": "sha256dt"
-      },
-      "blockHasher": {
-        "hash": "reverse",
-        "args": [ { "hash": "sha256dt" } ]
-      },
-      "explorerBlockLink": "https://explorer.novochain.ovh/block/$height$",
-      "explorerTxLink": "https://explorer.novochain.ovh/tx/{0}",
-      "explorerAccountLink": "https://explorer.novochain.ovh/address/{0}"
+        "name": "Novo",
+        "symbol": "NOVO",
+        "family": "bitcoin",
+        "coinbaseHasher": {
+            "hash": "sha256d"
+        },
+        "headerHasher": {
+            "hash": "sha256dt"
+        },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [ { "hash": "sha256dt" } ]
+        },
+        "explorerBlockLink": "https://explorer.novochain.ovh/block/$height$",
+        "explorerTxLink": "https://explorer.novochain.ovh/tx/{0}",
+        "explorerAccountLink": "https://explorer.novochain.ovh/address/{0}"
     },
     "bitoreum": {
         "name": "Bitoreum",
@@ -4338,5 +4338,33 @@
         "explorerBlockLink": "https://explorer.ergoplatform.com/en/blocks/$hash$",
         "explorerTxLink": "https://explorer.ergoplatform.com/en/transactions/{0}",
         "explorerAccountLink": "https://explorer.ergoplatform.com/en/addresses/{0}"
+    },
+    "bgcoin": {
+        "name": "Black Gold Coin",
+        "canonicalName": "Black Gold Coin",
+        "symbol": "BGCO",
+        "family": "bitcoin",
+        "website": "https://blackgoldcoin.org/",
+        "market": "",
+        "twitter": "",
+        "telegram": "",
+        "discord": "",
+        "coinbaseHasher": {
+            "hash": "sha256d"
+        },
+        "headerHasher": {
+            "hash": "sha256d"
+        },
+        "blockHasher": {
+            "hash": "reverse",
+            "args": [
+                {
+                    "hash": "sha256d"
+                }
+            ]
+        },
+        "explorerBlockLink": "https://explorer.blackgoldcoin.org/block/$height$",
+        "explorerTxLink": "https://explorer.blackgoldcoin.org/tx/{0}",
+        "explorerAccountLink": "https://explorer.blackgoldcoin.org/address/{0}"
     }
 }
